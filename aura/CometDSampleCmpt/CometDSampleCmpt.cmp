@@ -1,0 +1,19 @@
+<aura:component controller="CometDSampleAuraController">
+	<ltng:require scripts="{!join(',', 
+    $Resource.cometD + '/cometd.js', 
+    $Resource.cometD + '/jquery-1.5.1.js',
+    $Resource.cometD + '/json2.js',
+    $Resource.cometD + '/jquery.cometd.js')}" 
+    afterScriptsLoaded="{!c.bootstrapCometD}"/>
+    
+    <aura:attribute name="sessionId" type="String"/>
+    <aura:attribute name="subject" type="String"/>
+    <aura:attribute name="status" type="String"/>
+
+    <aura:if isTrue="{!v.status}">
+    	<div class="slds-notify slds-notify--alert slds-theme--alert-texture" role="alert">
+	    	<h2>{!v.subject}</h2>
+            <h2>{!v.status}</h2>
+	  	</div>
+    </aura:if>
+</aura:component>
